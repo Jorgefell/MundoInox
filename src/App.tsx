@@ -10,6 +10,7 @@ import Angulos from './components/products/Angulos';
 import Planchas from './components/products/Planchas';
 import Barras from './components/products/Barras';
 import Platinas from './components/products/Platinas';
+import Accesorios from './components/products/Accesorios';
 
 const AppContent: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -46,6 +47,9 @@ const AppContent: React.FC = () => {
       case 'platinas':
         navigate('/productos/platinas');
         break;
+      case 'accesorios':
+        navigate('/productos/accesorios');
+        break;
       default:
         navigate('/');
     }
@@ -78,6 +82,7 @@ const AppContent: React.FC = () => {
           <Route path="/productos/planchas" element={<Planchas searchQuery={searchQuery} />} />
           <Route path="/productos/barras" element={<Barras searchQuery={searchQuery} />} />
           <Route path="/productos/platinas" element={<Platinas searchQuery={searchQuery} />} />
+          <Route path="/productos/accesorios" element={<Accesorios />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

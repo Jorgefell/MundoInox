@@ -11,7 +11,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange }) => {
     { id: 'tubos', label: 'Tubos', path: '/productos/tubos' },
     { id: 'barras', label: 'Barras', path: '/productos/barras' },
     { id: 'angulos', label: 'Ángulos', path: '/productos/angulos' },
-    { id: 'platinas', label: 'Platinas', path: '/productos/platinas' }
+    { id: 'platinas', label: 'Platinas', path: '/productos/platinas' },
+    { id: 'accesorios', label: 'Accesorios', path: '/productos/accesorios' }
   ];
 
   const tabs = [
