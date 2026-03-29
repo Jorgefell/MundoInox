@@ -31,7 +31,7 @@ const dataBarras = [
 
 const TablaBarras = () => {
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg max-w-6xl mx-auto mb-16">
+    <div className="p-6 bg-white shadow-md rounded-lg max-w-6xl mx-auto mb-16 mt-16">
       {/* Título principal */}
       <h2 className="text-4xl font-bold text-blue-600 text-center mb-6">BARRAS DE ACERO INOXIDABLE</h2>
       
@@ -42,17 +42,17 @@ const TablaBarras = () => {
       </p>
 
       {/* Imagen */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-2 h-28 flex items-center justify-center">
         <img 
           src="https://static.wixstatic.com/media/d5ba68_cf52d9faf7744a609e7232ea622cbf0d~mv2.png/v1/crop/x_17,y_56,w_514,h_560/fill/w_123,h_133,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/5.png" 
           alt="Barras de Acero Inoxidable" 
-          className="mx-auto w-40 md:w-80"
+          className="w-28 h-auto"
         />
       </div>
 
       {/* Sección de Tabla con título, norma y stock */}
-      <div className="mb-8">
-        <div className="flex justify-between items-end mb-3">
+      <div className="mb-6">
+        <div className="flex justify-between items-end mb-2">
           <h3 className="text-2xl font-bold text-gray-800">Tabla de Barras</h3>
           <div className="text-right">
             <p className="text-lg text-gray-600">Norma: ASTM A-276</p>
@@ -68,8 +68,8 @@ const TablaBarras = () => {
           <table className="min-w-full border-collapse border border-blue-500 text-base text-center">
             <thead className="bg-blue-600 text-white">
               <tr>
-                <th className="border border-blue-500 px-4 py-2">Pulgadas</th>
-                <th className="border border-blue-500 px-4 py-2">Milímetros (mm)</th>
+                <th className="border border-blue-500 px-4 py-2">PULGADAS</th>
+                <th className="border border-blue-500 px-4 py-2">MILÍMETROS (MM)</th>
                 <th className="border border-blue-500 px-4 py-2">304</th>
                 <th className="border border-blue-500 px-4 py-2">201</th>
               </tr>

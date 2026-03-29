@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import accesoriosAluminio from '../assets/Accesorios_Aluminio.jpg';
+import accesoriosAntorcha from '../assets/Accesorios_antorcha.jpg';
+import ajustes from '../assets/Ajustes.jpg';
+import decorativos from '../assets/Decorativos.jpg';
+import electrodo from '../assets/Electrodo_varilla.jpg';
+import industriales from '../assets/Industriales.jpg';
+import limpieza from '../assets/Limpieza.jpg';
+import perforado from '../assets/Perforado_rosca.png';
 
 const images = [
   {
@@ -45,11 +53,24 @@ const productCategories = [
     title: "Platinas",
     image: "https://steelcompany.com.pe/img-apps/productos/platina01.jpg",
     category: "platinas"
-  }
+  },
+  {
+    title: "Accesorios de Antorcha",
+    image: accesoriosAntorcha,
+    category: "accesorios"
+  },
+  { title: "Discos / Limpieza", image: limpieza, category: "discos-limpieza" },
+  { title: "Perforado Rosca", image: perforado, category: "perforado-rosca" },
+  { title: "Accesorios de Aluminio", image: accesoriosAluminio, category: "aluminio-antorcha" },
+  { title: "Decorativos", image: decorativos, category: "decorativos" },
+  { title: "Ajustes", image: ajustes, category: "ajustes" },
+  { title: "Industriales", image: industriales, category: "industriales" },
+  { title: "Electrodo de Varilla", image: electrodo, category: "electrodo-varilla" }
 ];
 
 const Hero = ({ onCategorySelect }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -68,8 +89,13 @@ const Hero = ({ onCategorySelect }) => {
   };
 
   const handleCategoryClick = (category: string) => {
+    // Navega a la ruta independiente bajo /productos/{slug}
     navigate(`/productos/${category}`);
-    onCategorySelect(category);
+    // Solo actualiza la pestaña activa si es una pestaña principal
+    const tabs = ['tubos','planchas','angulos','barras','platinas','accesorios'];
+    if (tabs.includes(category)) {
+      onCategorySelect(category);
+    }
   };
 
   return (
@@ -116,28 +142,42 @@ const Hero = ({ onCategorySelect }) => {
       {/* Products Section */}
       <div className="bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-6">
             Nuestros Productos
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {productCategories.map((product) => (
+
+          {/* Buscador de tarjetillas */}
+          <div className="max-w-xl mx-auto mb-10 relative">
+            <Search className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Buscar tarjetilla por nombre..."
+              className="w-full pl-10 pr-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {productCategories
+              .filter((p) => p.title.toLowerCase().includes(search.toLowerCase()))
+              .map((product) => (
               <div
                 key={product.category}
-                className="group cursor-pointer"
+                className="group cursor-pointer transform hover:scale-105 transition-transform duration-300"
                 onClick={() => handleCategoryClick(product.category)}
               >
-                <div className="relative overflow-hidden rounded-lg shadow-lg">
+                <div className="relative overflow-hidden rounded-lg shadow-lg h-full">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
                         {product.title}
                       </h3>
-                      <button className="bg-blue-600 text-white px-6 py-2 rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                      <button className="bg-blue-600 text-white px-4 py-1.5 rounded-lg text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                         Ver Productos
                       </button>
                     </div>

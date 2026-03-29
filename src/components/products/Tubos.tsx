@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import tuboRedondoImg from '../../assets/tuboredondo.jpg'; // Importa la imagen local
+import tuboCuadradoImg from '../../assets/tubocuadrado.jpg'; // Importa la imagen local
+import tuboRectangularImg from '../../assets/tuborectangular.jpg'; // Importa la imagen local
 
 const dataTubos = [
   { diametroNominalMM: 3.175, diametroNominalPulg: '1/8"', diametroExteriorMM: 10.287, diametroExteriorPulg: 0.405, cedula: 10, espesorMM: 1.245, espesorPulg: 0.049, pesoLbPie: 0.190, pesoKgM: 0.283 },
@@ -123,14 +126,26 @@ const dataTuboRectangular = {
 };
 
 const TubosTable = () => {
+  const [query, setQuery] = useState('');
+  const matches = (title: string) => title.toLowerCase().includes(query.trim().toLowerCase());
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg max-w-6xl mx-auto">
+    <div className="p-6 bg-white shadow-md rounded-lg max-w-6xl mx-auto mt-16">
       <h2 className="text-3xl font-bold text-blue-600 text-center mb-4">TUBOS DE ACERO INOXIDABLE</h2>
       <p className="text-sm text-gray-700 text-center mb-4">
         Aquí encontrarás las especificaciones técnicas de nuestros tubos de acero inoxidable, incluyendo el diámetro nominal, espesor y peso por metro.
       </p>
 
+      <div className="max-w-xl mx-auto mb-6">
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Buscar tabla por nombre..."
+          className="w-full px-4 py-3 rounded-lg bg-white text-gray-800 placeholder-gray-400 border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        />
+      </div>
+
       {/* Tubería Industrial con Costura */}
+{(query.trim()==='' || matches('Tubería Industrial con Costura')) && (
 <div className="mb-12">
   <div className="flex justify-between items-center mb-4">
     <div>
@@ -149,15 +164,15 @@ const TubosTable = () => {
   <table className="min-w-full border-collapse border border-blue-500 text-sm text-center mb-8">
     <thead className="bg-blue-600 text-white">
       <tr>
-        <th className="border border-blue-500 px-3 py-2">Diámetro Nominal (mm)</th>
-        <th className="border border-blue-500 px-3 py-2">Diámetro Nominal (pulg)</th>
-        <th className="border border-blue-500 px-3 py-2">Diámetro Exterior (mm)</th>
-        <th className="border border-blue-500 px-3 py-2">Diámetro Exterior (pulg)</th>
-        <th className="border border-blue-500 px-3 py-2">Cédula</th>
-        <th className="border border-blue-500 px-3 py-2">Espesor (mm)</th>
-        <th className="border border-blue-500 px-3 py-2">Espesor (pulg)</th>
-        <th className="border border-blue-500 px-3 py-2">Peso (lb/ft)</th>
-        <th className="border border-blue-500 px-3 py-2">Peso (kg/m)</th>
+        <th className="border border-blue-500 px-3 py-2">DIÁMETRO NOMINAL (MM)</th>
+        <th className="border border-blue-500 px-3 py-2">DIÁMETRO NOMINAL (PULG)</th>
+        <th className="border border-blue-500 px-3 py-2">DIÁMETRO EXTERIOR (MM)</th>
+        <th className="border border-blue-500 px-3 py-2">DIÁMETRO EXTERIOR (PULG)</th>
+        <th className="border border-blue-500 px-3 py-2">CÉDULA</th>
+        <th className="border border-blue-500 px-3 py-2">ESPESOR (MM)</th>
+        <th className="border border-blue-500 px-3 py-2">ESPESOR (PULG)</th>
+        <th className="border border-blue-500 px-3 py-2">PESO (LB/FT)</th>
+        <th className="border border-blue-500 px-3 py-2">PESO (KG/M)</th>
       </tr>
     </thead>
     <tbody>
@@ -177,10 +192,12 @@ const TubosTable = () => {
     </tbody>
   </table>
 </div>
+      )}
 
       {/* Tubo Redondo Ornamental */}
-      <div className="mb-12">
-        <div className="flex justify-between items-center mb-4">
+      {(query.trim()==='' || matches('Tubo Redondo Ornamental')) && (
+      <div className="mb-8">
+        <div className="flex justify-between items-start gap-6 mb-2">
           <div>
             <h3 className="text-4xl font-bold text-blue-600">Tubo Redondo Ornamental</h3>
             <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
@@ -189,19 +206,21 @@ const TubosTable = () => {
               <span className="text-xl">Medidas en stock</span>
             </div>
           </div>
-          <img 
-            src="/tuboredondo.jpg" 
-            alt="Tubo Redondo" 
-            className="w-60 h-auto"
-          />
+          <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+            <img 
+              src={tuboRedondoImg} 
+              alt="Tubo Redondo" 
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </div>
         <table className="min-w-full border-collapse border border-green-500 text-xs text-center">
           <thead className="bg-green-600 text-white">
             <tr>
-              <th className="border border-green-500 px-1 py-1">Acabado</th>
-              <th className="border border-green-500 px-1 py-1">Espesor</th>
+              <th className="border border-green-500 px-1 py-1">ACABADO</th>
+              <th className="border border-green-500 px-1 py-1">ESPESOR</th>
               {medidasTubos.map((medida, index) => (
-                <th key={index} className="border border-green-500 px-1 py-1">{`${medida.pulg} | ${medida.mm} mm`}</th>
+                <th key={index} className="border border-green-500 px-1 py-1">{`${typeof medida.pulg === 'string' ? medida.pulg.toUpperCase() : medida.pulg} | ${typeof medida.mm === 'string' ? medida.mm : medida.mm} MM`}</th>
               ))}
             </tr>
           </thead>
@@ -220,10 +239,12 @@ const TubosTable = () => {
           </tbody>
         </table>
       </div>
+      )}
 
       {/* Tubo Cuadrado Ornamental */}
-      <div className="mb-12">
-        <div className="flex justify-between items-center mb-4">
+      {(query.trim()==='' || matches('Tubo Cuadrado Ornamental')) && (
+      <div className="mb-8">
+        <div className="flex justify-between items-start gap-6 mb-2">
           <div>
             <h3 className="text-4xl font-bold text-blue-600">Tubo Cuadrado Ornamental</h3>
             <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
@@ -232,19 +253,21 @@ const TubosTable = () => {
               <span className="text-xl">Medidas en stock</span>
             </div>
           </div>
-          <img 
-            src="/tubocuadrado.jpg" 
-            alt="Tubo Cuadrado" 
-            className="w-60 h-auto"
-          />
+          <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+            <img 
+              src={tuboCuadradoImg} 
+              alt="Tubo Cuadrado" 
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </div>
         <table className="min-w-full border-collapse border border-red-500 text-xs text-center">
           <thead className="bg-red-600 text-white">
             <tr>
-              <th className="border border-red-500 px-1 py-1">Acabado</th>
-              <th className="border border-red-500 px-1 py-1">Espesor</th>
+              <th className="border border-red-500 px-1 py-1">ACABADO</th>
+              <th className="border border-red-500 px-1 py-1">ESPESOR</th>
               {dataTuboCuadrado.medidas.map((medida, index) => (
-                <th key={index} className="border border-red-500 px-1 py-1">{medida}</th>
+                <th key={index} className="border border-red-500 px-1 py-1">{typeof medida === 'string' ? medida.toUpperCase() : medida}</th>
               ))}
             </tr>
           </thead>
@@ -263,10 +286,12 @@ const TubosTable = () => {
           </tbody>
         </table>
       </div>
+      )}
 
       {/* Tubo Rectangular Ornamental */}
-      <div className="mb-12">
-        <div className="flex justify-between items-center mb-4">
+      {(query.trim()==='' || matches('Tubo Rectangular Ornamental')) && (
+      <div className="mb-8">
+        <div className="flex justify-between items-start gap-6 mb-2">
           <div>
             <h3 className="text-4xl font-bold text-blue-600">Tubo Rectangular Ornamental</h3>
             <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
@@ -275,19 +300,21 @@ const TubosTable = () => {
               <span className="text-xl">Medidas en stock</span>
             </div>
           </div>
-          <img 
-            src="/tuborectangular.jpg" 
-            alt="Tubo Rectangular" 
-            className="w-60 h-auto"
-          />
+          <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
+            <img 
+              src={tuboRectangularImg} 
+              alt="Tubo Rectangular" 
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </div>
         <table className="min-w-full border-collapse border border-yellow-500 text-sm text-center">
           <thead className="bg-yellow-600 text-white">
             <tr>
-              <th className="border border-yellow-500 px-1 py-1">Acabado</th>
-              <th className="border border-yellow-500 px-1 py-1">Espesor</th>
+              <th className="border border-yellow-500 px-1 py-1">ACABADO</th>
+              <th className="border border-yellow-500 px-1 py-1">ESPESOR</th>
               {dataTuboRectangular.medidas.map((medida, index) => (
-                <th key={index} className="border border-yellow-500 px-1 py-1">{medida}</th>
+                <th key={index} className="border border-yellow-500 px-1 py-1">{typeof medida === 'string' ? medida.toUpperCase() : medida}</th>
               ))}
             </tr>
           </thead>
@@ -306,6 +333,7 @@ const TubosTable = () => {
           </tbody>
         </table>
       </div>
+      )}
     </div>
   );
 };

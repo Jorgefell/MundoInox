@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <rect width="100%" height="100%" fill="#f3f4f6"/>
+  <circle cx="80" cy="80" r="52" fill="#e5e7eb" stroke="#9ca3af" stroke-width="4"/>
+  <circle cx="80" cy="80" r="20" fill="#f3f4f6" stroke="#9ca3af" stroke-width="3"/>
+  <text x="50%" y="92%" font-size="12" fill="#6b7280" text-anchor="middle">Arandela</text>
+</svg>
