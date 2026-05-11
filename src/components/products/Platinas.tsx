@@ -1,4 +1,5 @@
 import React from 'react';
+import PlatinasInoxImg from '../../assets/Platinas_inox.png';
 
 const TablaPlatinas = () => {
   // Datos de las platinas
@@ -21,7 +22,7 @@ const TablaPlatinas = () => {
   ];
 
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg max-w-6xl mx-auto mb-16 mt-16">
+    <div className="p-6 bg-white max-w-6xl mx-auto mb-16 mt-16">
       {/* Título principal */}
       <h2 className="text-4xl font-bold text-blue-600 text-center mb-6">PLATINAS DE ACERO INOXIDABLE</h2>
       
@@ -32,11 +33,18 @@ const TablaPlatinas = () => {
       </p>
 
       {/* Imagen */}
-      <div className="text-center mb-2 h-28 flex items-center justify-center">
+      <div className="flex justify-center items-center gap-8 mb-8">
         <img
           src="https://static.wixstatic.com/media/d5ba68_8c95d62cff38472a9262bfcfd724ddf0~mv2.png/v1/fill/w_208,h_106,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/PLATINAS_dimensiones.png"
           alt="Platinas Dimensiones"
-          className="w-28 h-auto"
+          className="w-64 h-auto"
+        />
+        <img
+          src={PlatinasInoxImg}
+          alt="Platinas Inox"
+          className="w-52 h-auto"
+          style={{ background: '#fff' }}
+          onError={e => { e.currentTarget.style.display = 'none'; }}
         />
       </div>
 

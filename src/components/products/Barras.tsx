@@ -1,4 +1,5 @@
 import React from 'react';
+import BarrasInoxImg from '../../assets/Barras-Inox.png';
 
 const dataBarras = [
   { pulgadas: '1/8"', milimetros: '3.175 mm', tipo304: true, tipo201: true },
@@ -31,7 +32,7 @@ const dataBarras = [
 
 const TablaBarras = () => {
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg max-w-6xl mx-auto mb-16 mt-16">
+    <div className="p-6 bg-white max-w-6xl mx-auto mb-16 mt-16">
       {/* Título principal */}
       <h2 className="text-4xl font-bold text-blue-600 text-center mb-6">BARRAS DE ACERO INOXIDABLE</h2>
       
@@ -42,11 +43,18 @@ const TablaBarras = () => {
       </p>
 
       {/* Imagen */}
-      <div className="text-center mb-2 h-28 flex items-center justify-center">
+      <div className="flex justify-center items-center gap-4 mb-4">
         <img 
           src="https://static.wixstatic.com/media/d5ba68_cf52d9faf7744a609e7232ea622cbf0d~mv2.png/v1/crop/x_17,y_56,w_514,h_560/fill/w_123,h_133,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/5.png" 
           alt="Barras de Acero Inoxidable" 
-          className="w-28 h-auto"
+          className="w-25 h-auto"
+        />
+        <img
+          src={BarrasInoxImg}
+          alt="Barras Inox"
+          className="w-40 h-auto"
+          style={{ background: '#fff' }}
+          onError={e => { e.currentTarget.style.display = 'none'; }}
         />
       </div>
 

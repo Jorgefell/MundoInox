@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AngularesInoxImg from '../../assets/Angulos_Inox.png';
 
 const TablaAngulos = () => {
   const angulos = [
@@ -22,7 +23,7 @@ const TablaAngulos = () => {
   const [query, setQuery] = useState('');
   const matches = (title: string) => title.toLowerCase().includes(query.trim().toLowerCase());
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg max-w-6xl mx-auto mb-16 mt-16">
+    <div className="p-6 bg-white max-w-6xl mx-auto mb-16 mt-16">
       {/* Título principal */}
       <h2 className="text-4xl font-bold text-blue-600 text-center mb-6">ÁNGULOS DE ACERO INOXIDABLE</h2>
       
@@ -33,11 +34,18 @@ const TablaAngulos = () => {
       </p>
 
       {/* Imagen */}
-      <div className="text-center mb-2 h-28 flex items-center justify-center">
+      <div className="flex justify-center items-center gap-0.1 mb-0.1">
         <img
           src="https://static.wixstatic.com/media/d5ba68_a72915ceb3894a9e9e7e25b62b8f8495~mv2.png/v1/crop/x_57,y_37,w_597,h_587/fill/w_149,h_133,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6.png"
           alt="Ángulos Dimensiones"
-          className="w-28 h-auto"
+          className="w-50 h-auto"
+        />
+        <img
+          src={AngularesInoxImg}
+          alt="Ángulos Inox"
+          className="w-60 h-auto"
+          style={{ background: '#fff' }}
+          onError={e => { e.currentTarget.style.display = 'none'; }}
         />
       </div>
 

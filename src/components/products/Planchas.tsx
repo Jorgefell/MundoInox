@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PlanchasInoxImg from '../../assets/Planchas_inox.png';
 
 const dataPlanchas = [
   { calidad: '304/304L', acabado: 'N° 1', desde: '3.00', hasta: '50.80', medidas: [true, true, true] },
@@ -38,15 +39,21 @@ const PlanchasTable = () => {
           Somos importadores y proveedores a nivel nacional de planchas de Acero Inoxidable en calidades 304, 316 y 430, 
           en formatos 4'x8', 5'x10' y 5'x20'.
         </p>
-        
-        {/* Imagen centrada */}
-        <div className="flex justify-center mb-2 h-28 flex items-center">
-          <img
-            src="https://static.wixstatic.com/media/d5ba68_dc2660d962fb4bda98d9521a557fa82c~mv2.png/v1/crop/x_112,y_397,w_763,h_270/fill/w_471,h_161,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Ancho.png"
-            alt="Ancho Planchas"
-            className="w-32 h-auto"
-          />
-        </div>
+        {/* Imágenes grandes una al lado de otra */}
+         <div className="flex justify-center items-center gap-8 mb-2">
+           <img
+             src="https://static.wixstatic.com/media/d5ba68_dc2660d962fb4bda98d9521a557fa82c~mv2.png/v1/crop/x_112,y_397,w_763,h_270/fill/w_471,h_161,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Ancho.png"
+             alt="Ancho Planchas"
+             className="w-72 h-auto "
+           />
+           <img
+             src={PlanchasInoxImg}
+             alt="Planchas Inox"
+             className="w-60 h-auto "
+             style={{ background: '#fff' }}
+             onError={e => { e.currentTarget.style.display = 'none'; }}
+           />
+         </div>
       </div>
 
       <div className="max-w-xl mx-auto mb-6">

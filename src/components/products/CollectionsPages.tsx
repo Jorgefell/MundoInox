@@ -3622,10 +3622,10 @@ const TiposElectrodosTable: React.FC = () => {
     { calidad: 'E-7018', acabado: 'Acero al carbono', espesor: '1/8"', peso: '1.00', marca: 'SUPERCITO' },
     { calidad: 'C-308', acabado: 'Acero inoxidable', espesor: '1/16"', peso: '0.006', marca: 'AW' },
     { calidad: 'C-308', acabado: 'Acero inoxidable', espesor: '3/32"', peso: '0.023', marca: 'AW' },
-    { calidad: 'C-308', acabado: 'Acero inoxidable', espesor: '1/8"', peso: '0.038', marca: 'GOLD BRG' },
+    { calidad: 'C-308', acabado: 'Acero inoxidable', espesor: '1/8"', peso: '0.038', marca: 'GOLDEN BRIDGE' },
     { calidad: 'C-316', acabado: 'Acero inoxidable', espesor: '1/16"', peso: '1.00', marca: 'AW' },
-    { calidad: 'C-316', acabado: 'Acero inoxidable', espesor: '3/32"', peso: '1.00', marca: 'GOLD BRG' },
-    { calidad: 'C-316', acabado: 'Acero inoxidable', espesor: '1/8"', peso: '1.00', marca: 'GOLD BRG' },
+    { calidad: 'C-316', acabado: 'Acero inoxidable', espesor: '3/32"', peso: '1.00', marca: 'GOLDEN BRIDGE' },
+    { calidad: 'C-316', acabado: 'Acero inoxidable', espesor: '1/8"', peso: '1.00', marca: 'GOLDEN BRIDGE' },
   ];
 
   return (
@@ -5115,17 +5115,17 @@ const VarillasTable: React.FC = () => {
     { calidad: 'ER70S-6', acabado: 'Acero de carbono', espesor: '3.2', largo: '1000', peso: '0.063', marca: 'INDURA' },
     
     // --- ACERO INOXIDABLE C-308L ---
-    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '0.8', largo: '1000', peso: '0.004', marca: 'BÖHLER' },
-    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '1.0', largo: '1000', peso: '0.006', marca: 'BÖHLER' },
-    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '1.2', largo: '1000', peso: '0.009', marca: 'BÖHLER' },
-    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '1.6', largo: '1000', peso: '0.016', marca: 'BÖHLER' },
-    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '2.4', largo: '1000', peso: '0.036', marca: 'BÖHLER' },
-    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '3.2', largo: '1000', peso: '0.064', marca: 'BÖHLER' },
+    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '0.8', largo: '1000', peso: '0.004', marca: 'SUPERON' },
+    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '1.0', largo: '1000', peso: '0.006', marca: 'SUPERON' },
+    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '1.2', largo: '1000', peso: '0.009', marca: 'SUPERON' },
+    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '1.6', largo: '1000', peso: '0.016', marca: 'SUPERON' },
+    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '2.4', largo: '1000', peso: '0.036', marca: 'SUPERON' },
+    { calidad: 'ER-308L', acabado: 'Acero inoxidable', espesor: '3.2', largo: '1000', peso: '0.064', marca: 'SUPERON' },
     
     // --- ACERO INOXIDABLE C-316L ---
-    { calidad: 'ER-316L', acabado: 'Acero inoxidable', espesor: '1.6', largo: '1000', peso: '0.016', marca: 'BÖHLER' },
-    { calidad: 'ER-316L', acabado: 'Acero inoxidable', espesor: '2.4', largo: '1000', peso: '0.036', marca: 'BÖHLER' },
-    { calidad: 'ER-316L', acabado: 'Acero inoxidable', espesor: '3.2', largo: '1000', peso: '0.064', marca: 'BÖHLER' },
+    { calidad: 'ER-316L', acabado: 'Acero inoxidable', espesor: '1.6', largo: '1000', peso: '0.016', marca: 'SUPERON' },
+    { calidad: 'ER-316L', acabado: 'Acero inoxidable', espesor: '2.4', largo: '1000', peso: '0.036', marca: 'SUPERON' },
+    { calidad: 'ER-316L', acabado: 'Acero inoxidable', espesor: '3.2', largo: '1000', peso: '0.064', marca: 'SUPERON' },
     
     // --- ALUMINIO (ER-4043) ---
     { calidad: 'ER-4043', acabado: 'Aluminio', espesor: '1.6', largo: '1000', peso: '0.005', marca: 'SUPERON' },
@@ -5594,11 +5594,11 @@ export const ElectrodoVarillaPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-center mb-2 h-28 flex items-center justify-center">
-                  <img
-                    src={imgRollo}
-                    alt="Varillas"
-                    className="w-24 h-24 object-contain"
-                  />
+                    <img
+                      src={imgRollo}
+                      alt="Varillas"
+                      className="w-40 h-30 sm:w-50 sm:h-40 md:w-60 md:h-48 object-contain"
+                    />
                 </div>
                 <VarillasTable />
               </div>

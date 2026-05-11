@@ -36,12 +36,22 @@ const buildEmptyData = (rows: number = 5): RowBase[] => {
 
 const SectionTable: React.FC<{ title: string; iconPath?: string; rows?: RowBase[] }>
 = ({ title, iconPath = '/icons/placeholder.png', rows = buildEmptyData() }) => {
+  // Enlarge the image for APORTE TIG (Tabla 08) on electrodo-varilla
+  const isAporteTig = title.toLowerCase().includes('electrodos de varilla - tabla 08');
   return (
     <div className="mb-8 bg-white shadow-md rounded-lg overflow-hidden">
       {/* Encabezado clásico azul con espacio para icono opcional */}
       <div className="flex items-center gap-4 px-4 py-3 bg-blue-600">
-        <div className="w-10 h-10 bg-white/20 rounded-md overflow-hidden flex items-center justify-center">
-          <img src={iconPath} alt={title} className="w-full h-full object-cover" onError={(e:any)=>{e.currentTarget.style.display='none'}} />
+        <div
+          className={isAporteTig ? "w-32 h-32 bg-white/20 rounded-md overflow-hidden flex items-center justify-center" : "w-10 h-10 bg-white/20 rounded-md overflow-hidden flex items-center justify-center"}
+        >
+          <img
+            src={iconPath}
+            alt={title}
+            className={isAporteTig ? "w-full h-full object-cover" : "w-full h-full object-cover"}
+            style={isAporteTig ? { minWidth: 128, minHeight: 128, maxWidth: 256, maxHeight: 256 } : {}}
+            onError={(e:any)=>{e.currentTarget.style.display='none'}}
+          />
         </div>
         <h3 className="text-lg font-semibold text-white">{title}</h3>
       </div>
@@ -60,7 +70,7 @@ const SectionTable: React.FC<{ title: string; iconPath?: string; rows?: RowBase[
           </thead>
           <tbody>
             {rows.map((r, idx) => (
-              <tr key={idx} className={`border border-blue-500 ${idx % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
+              <tr key={idx} className={`border border-blue-500 ${idx % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}> 
                 <td className="px-3 py-2">{r.codigo}</td>
                 <td className="px-3 py-2 text-left">{r.descripcion}</td>
                 <td className="px-3 py-2">{r.medida}</td>

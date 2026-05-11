@@ -55,15 +55,15 @@ const productCategories = [
     category: "platinas"
   },
   {
-    title: "Accesorios de Antorcha",
+    title: "Consumibles de Antorcha Tig",
     image: accesoriosAntorcha,
     category: "accesorios"
   },
-  { title: "Discos / Limpieza", image: limpieza, category: "discos-limpieza" },
+  { title: "Tratamiento y Acabado Inox", image: limpieza, category: "discos-limpieza" },
   { title: "Perforado Rosca", image: perforado, category: "perforado-rosca" },
   { title: "Accesorios de Aluminio", image: accesoriosAluminio, category: "aluminio-antorcha" },
-  { title: "Decorativos", image: decorativos, category: "decorativos" },
-  { title: "Ajustes", image: ajustes, category: "ajustes" },
+  { title: "Elementos Inox Decorativos", image: decorativos, category: "decorativos" },
+  { title: "Fijaciones y Ajustes Inos", image: ajustes, category: "ajustes" },
   { title: "Industriales", image: industriales, category: "industriales" },
   { title: "Electrodo de Varilla", image: electrodo, category: "electrodo-varilla" }
 ];
