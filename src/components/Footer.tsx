@@ -14,7 +14,7 @@ const Footer = () => {
               <div className="flex items-center">
                 <Phone className="w-5 h-5 mr-2" />
                 <div>
-                  <p>Central: 054-619250</p>
+                  <p>Central: 054-617427</p>
                   <p>WhatsApp: +51 987 111 430</p>
                 </div>
               </div>
@@ -29,7 +29,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Ubicación</h3>
             <div className="flex items-start">
               <MapPin className="w-5 h-5 mr-2 mt-1" />
-              <p>Malecon Zolezzi Nro. 337,<br />Mariano Melgar - Arequipa</p>
+              <p>Mlc. Malecon Zolezzi Nro 161, (Al Costado De La Feria Altiplano),<br />Mariano Melgar - Arequipa</p>
             </div>
           </div>
 
