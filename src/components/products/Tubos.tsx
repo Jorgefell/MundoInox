@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import tuboRedondoImg from '../../assets/tuboredondo.jpg'; // Importa la imagen local
-import tuboCuadradoImg from '../../assets/tubocuadrado.jpg'; // Importa la imagen local
-import tuboRectangularImg from '../../assets/tuborectangular.jpg'; // Importa la imagen local
+import tuboRedondoImg from '../../assets/tuboredondo.jpg';
+import tuboCuadradoImg from '../../assets/tubocuadrado.jpg';
+import tuboRectangularImg from '../../assets/tuborectangular.jpg';
+import tuboindustrialImg from '../../assets/tuboindustrial.png';
+import TuberíaIndustrialImg from '../../assets/tuberias/Tuberia_Industrial.png';
+import TuboRedondoAltImg from '../../assets/tuberias/Tubo_Redondo.png';
+import TuboCuadradoAltImg from '../../assets/tuberias/Tubo_Cuadrado.png';
+import TuboRectangularAltImg from '../../assets/tuberias/Tubo_Rectangular.png';
 
 const dataTubos = [
   { diametroNominalMM: 3.175, diametroNominalPulg: '1/8"', diametroExteriorMM: 10.287, diametroExteriorPulg: 0.405, cedula: 10, espesorMM: 1.245, espesorPulg: 0.049, pesoLbPie: 0.190, pesoKgM: 0.283 },
@@ -144,20 +149,189 @@ const TubosTable = () => {
         />
       </div>
 
+      {/* Tubo Cuadrado Ornamental */}
+      {(query.trim()==='' || matches('Tubo Cuadrado Ornamental')) && (
+      <div className="mb-12">
+        <div className="mb-4">
+          <h3 className="text-3xl font-bold text-blue-600 mb-2">Tubo Cuadrado Ornamental</h3>
+          <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
+          <div className="flex items-center gap-2 text-green-600 mb-4">
+            <span className="text-2xl">✔️</span>
+            <span className="text-xl">Medidas en stock</span>
+          </div>
+        </div>
+
+        {/* Imágenes */}
+        <div className="flex justify-center items-center gap-8 mb-8">
+          <img 
+            src={tuboCuadradoImg} 
+            alt="Tubo Cuadrado" 
+            className="w-48 h-auto"
+          />
+          <img 
+            src={TuboCuadradoAltImg} 
+            alt="Tubo Cuadrado Alt" 
+            className="w-48 h-auto"
+          />
+        </div>
+
+        <table className="min-w-full border-collapse border border-red-500 text-xs text-center">
+          <thead className="bg-red-600 text-white">
+            <tr>
+              <th className="border border-red-500 px-1 py-1">ACABADO</th>
+              <th className="border border-red-500 px-1 py-1">ESPESOR</th>
+              {dataTuboCuadrado.medidas.map((medida, index) => (
+                <th key={index} className="border border-red-500 px-1 py-1">{typeof medida === 'string' ? medida.toUpperCase() : medida}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {dataTuboCuadrado.data.map((row, index) => (
+              <tr key={index} className={`border border-red-500 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
+                <td className="px-1 py-1">{row.acabado}</td>
+                <td className="px-1 py-1">{row.espesor}</td>
+                {row.medidas.map((isAvailable, medidaIndex) => (
+                  <td key={medidaIndex} className="px-1 py-1">
+                    {isAvailable ? "✔️" : "❌"}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      )}
+
+      {/* Tubo Rectangular Ornamental */}
+      {(query.trim()==='' || matches('Tubo Rectangular Ornamental')) && (
+      <div className="mb-12">
+        <div className="mb-4">
+          <h3 className="text-3xl font-bold text-blue-600 mb-2">Tubo Rectangular Ornamental</h3>
+          <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
+          <div className="flex items-center gap-2 text-green-600 mb-4">
+            <span className="text-2xl">✔️</span>
+            <span className="text-xl">Medidas en stock</span>
+          </div>
+        </div>
+
+        {/* Imágenes */}
+        <div className="flex justify-center items-center gap-8 mb-8">
+          <img 
+            src={tuboRectangularImg} 
+            alt="Tubo Rectangular" 
+            className="w-48 h-auto"
+          />
+          <img 
+            src={TuboRectangularAltImg} 
+            alt="Tubo Rectangular Alt" 
+            className="w-48 h-auto"
+          />
+        </div>
+
+        <table className="min-w-full border-collapse border border-yellow-500 text-sm text-center">
+          <thead className="bg-yellow-600 text-white">
+            <tr>
+              <th className="border border-yellow-500 px-1 py-1">ACABADO</th>
+              <th className="border border-yellow-500 px-1 py-1">ESPESOR</th>
+              {dataTuboRectangular.medidas.map((medida, index) => (
+                <th key={index} className="border border-yellow-500 px-1 py-1">{typeof medida === 'string' ? medida.toUpperCase() : medida}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {dataTuboRectangular.data.map((row, index) => (
+              <tr key={index} className={`border border-yellow-500 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
+                <td className="px-1 py-1">{row.acabado}</td>
+                <td className="px-1 py-1">{row.espesor}</td>
+                {row.medidas.map((isAvailable, medidaIndex) => (
+                  <td key={medidaIndex} className="px-1 py-1">
+                    {isAvailable ? "✔️" : "❌"}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      )}
+
+      {/* Tubo Redondo Ornamental */}
+      {(query.trim()==='' || matches('Tubo Redondo Ornamental')) && (
+      <div className="mb-12">
+        <div className="mb-4">
+          <h3 className="text-3xl font-bold text-blue-600 mb-2">Tubo Redondo Ornamental</h3>
+          <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
+          <div className="flex items-center gap-2 text-green-600 mb-4">
+            <span className="text-2xl">✔️</span>
+            <span className="text-xl">Medidas en stock</span>
+          </div>
+        </div>
+
+        {/* Imágenes */}
+        <div className="flex justify-center items-center gap-8 mb-8">
+          <img 
+            src={tuboRedondoImg} 
+            alt="Tubo Redondo" 
+            className="w-48 h-auto"
+          />
+          <img 
+            src={TuboRedondoAltImg} 
+            alt="Tubo Redondo Alt" 
+            className="w-48 h-auto"
+          />
+        </div>
+
+        <table className="min-w-full border-collapse border border-green-500 text-xs text-center">
+          <thead className="bg-green-600 text-white">
+            <tr>
+              <th className="border border-green-500 px-1 py-1">ACABADO</th>
+              <th className="border border-green-500 px-1 py-1">ESPESOR</th>
+              {medidasTubos.map((medida, index) => (
+                <th key={index} className="border border-green-500 px-1 py-1">{`${typeof medida.pulg === 'string' ? medida.pulg.toUpperCase() : medida.pulg} | ${typeof medida.mm === 'string' ? medida.mm : medida.mm} MM`}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {dataTubosred.map((row, rowIndex) => (
+              <tr key={rowIndex} className={`border border-green-500 ${rowIndex % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
+                <td className="px-1 py-1">{row.acabado}</td>
+                <td className="px-1 py-1">{row.espesor}</td>
+                {row.medidas.map((medida, medidaIndex) => (
+                  <td key={medidaIndex} className="border border-green-500 px-1 py-1">
+                    {medida ? '✔️' : '❌'}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      )}
+
       {/* Tubería Industrial con Costura */}
 {(query.trim()==='' || matches('Tubería Industrial con Costura')) && (
 <div className="mb-12">
-  <div className="flex justify-between items-center mb-4">
-    <div>
-      <h3 className="text-3xl font-bold text-blue-600">Tubería Industrial con Costura</h3>
-      <p className="text-xl text-gray-600">Norma: ASTM A-312</p>
-      <div className="flex items-center gap-2 text-green-600">
-        <span className="text-2xl">✔️</span>
-        <span className="text-xl">Medidas en stock</span>
-      </div>
+  <div className="mb-4">
+    <h3 className="text-3xl font-bold text-blue-600 mb-2">Tubería Industrial con Costura</h3>
+    <p className="text-xl text-gray-600">Norma: ASTM A-312</p>
+    <div className="flex items-center gap-2 text-green-600 mb-4">
+      <span className="text-2xl">✔️</span>
+      <span className="text-xl">Medidas en stock</span>
     </div>
-    {/* Si quieres agregar una imagen posteriormente, puedes dejar este espacio */}
-    {/* <img src="/tuberia-industrial.jpg" alt="Tubería Industrial" className="w-60 h-auto"/> */}
+  </div>
+
+  {/* Imágenes */}
+  <div className="flex justify-center items-center gap-8 mb-8">
+    <img
+      src={tuboindustrialImg}
+      alt="Tubería Industrial"
+      className="w-48 h-auto"
+    />
+    <img
+      src={TuberíaIndustrialImg}
+      alt="Tubería Industrial Alt"
+      className="w-48 h-auto"
+    />
   </div>
 
   {/* Tabla principal */}
@@ -192,148 +366,7 @@ const TubosTable = () => {
     </tbody>
   </table>
 </div>
-      )}
-
-      {/* Tubo Redondo Ornamental */}
-      {(query.trim()==='' || matches('Tubo Redondo Ornamental')) && (
-      <div className="mb-8">
-        <div className="flex justify-between items-start gap-6 mb-2">
-          <div>
-            <h3 className="text-4xl font-bold text-blue-600">Tubo Redondo Ornamental</h3>
-            <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
-            <div className="flex items-center gap-2 text-green-600">
-              <span className="text-2xl">✔️</span>
-              <span className="text-xl">Medidas en stock</span>
-            </div>
-          </div>
-          <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-            <img 
-              src={tuboRedondoImg} 
-              alt="Tubo Redondo" 
-              className="w-full h-auto object-contain"
-            />
-          </div>
-        </div>
-        <table className="min-w-full border-collapse border border-green-500 text-xs text-center">
-          <thead className="bg-green-600 text-white">
-            <tr>
-              <th className="border border-green-500 px-1 py-1">ACABADO</th>
-              <th className="border border-green-500 px-1 py-1">ESPESOR</th>
-              {medidasTubos.map((medida, index) => (
-                <th key={index} className="border border-green-500 px-1 py-1">{`${typeof medida.pulg === 'string' ? medida.pulg.toUpperCase() : medida.pulg} | ${typeof medida.mm === 'string' ? medida.mm : medida.mm} MM`}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {dataTubosred.map((row, rowIndex) => (
-              <tr key={rowIndex} className={`border border-green-500 ${rowIndex % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
-                <td className="px-1 py-1">{row.acabado}</td>
-                <td className="px-1 py-1">{row.espesor}</td>
-                {row.medidas.map((medida, medidaIndex) => (
-                  <td key={medidaIndex} className="border border-green-500 px-1 py-1">
-                    {medida ? '✔️' : '❌'}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      )}
-
-      {/* Tubo Cuadrado Ornamental */}
-      {(query.trim()==='' || matches('Tubo Cuadrado Ornamental')) && (
-      <div className="mb-8">
-        <div className="flex justify-between items-start gap-6 mb-2">
-          <div>
-            <h3 className="text-4xl font-bold text-blue-600">Tubo Cuadrado Ornamental</h3>
-            <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
-            <div className="flex items-center gap-2 text-green-600">
-              <span className="text-2xl">✔️</span>
-              <span className="text-xl">Medidas en stock</span>
-            </div>
-          </div>
-          <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-            <img 
-              src={tuboCuadradoImg} 
-              alt="Tubo Cuadrado" 
-              className="w-full h-auto object-contain"
-            />
-          </div>
-        </div>
-        <table className="min-w-full border-collapse border border-red-500 text-xs text-center">
-          <thead className="bg-red-600 text-white">
-            <tr>
-              <th className="border border-red-500 px-1 py-1">ACABADO</th>
-              <th className="border border-red-500 px-1 py-1">ESPESOR</th>
-              {dataTuboCuadrado.medidas.map((medida, index) => (
-                <th key={index} className="border border-red-500 px-1 py-1">{typeof medida === 'string' ? medida.toUpperCase() : medida}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {dataTuboCuadrado.data.map((row, index) => (
-              <tr key={index} className={`border border-red-500 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
-                <td className="px-1 py-1">{row.acabado}</td>
-                <td className="px-1 py-1">{row.espesor}</td>
-                {row.medidas.map((isAvailable, medidaIndex) => (
-                  <td key={medidaIndex} className="px-1 py-1">
-                    {isAvailable ? "✔️" : "❌"}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      )}
-
-      {/* Tubo Rectangular Ornamental */}
-      {(query.trim()==='' || matches('Tubo Rectangular Ornamental')) && (
-      <div className="mb-8">
-        <div className="flex justify-between items-start gap-6 mb-2">
-          <div>
-            <h3 className="text-4xl font-bold text-blue-600">Tubo Rectangular Ornamental</h3>
-            <p className="text-xl text-gray-600">Norma: ASTM A-554</p>
-            <div className="flex items-center gap-2 text-green-600">
-              <span className="text-2xl">✔️</span>
-              <span className="text-xl">Medidas en stock</span>
-            </div>
-          </div>
-          <div className="w-48 h-48 flex-shrink-0 flex items-center justify-center">
-            <img 
-              src={tuboRectangularImg} 
-              alt="Tubo Rectangular" 
-              className="w-full h-auto object-contain"
-            />
-          </div>
-        </div>
-        <table className="min-w-full border-collapse border border-yellow-500 text-sm text-center">
-          <thead className="bg-yellow-600 text-white">
-            <tr>
-              <th className="border border-yellow-500 px-1 py-1">ACABADO</th>
-              <th className="border border-yellow-500 px-1 py-1">ESPESOR</th>
-              {dataTuboRectangular.medidas.map((medida, index) => (
-                <th key={index} className="border border-yellow-500 px-1 py-1">{typeof medida === 'string' ? medida.toUpperCase() : medida}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {dataTuboRectangular.data.map((row, index) => (
-              <tr key={index} className={`border border-yellow-500 ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
-                <td className="px-1 py-1">{row.acabado}</td>
-                <td className="px-1 py-1">{row.espesor}</td>
-                {row.medidas.map((isAvailable, medidaIndex) => (
-                  <td key={medidaIndex} className="px-1 py-1">
-                    {isAvailable ? "✔️" : "❌"}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      )}
+)}
     </div>
   );
 };

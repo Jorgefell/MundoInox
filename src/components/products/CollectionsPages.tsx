@@ -1204,11 +1204,11 @@ export const PerforadoRoscaPage: React.FC = () => {
                 <h3 className="text-xl font-bold text-blue-600">{s.title}</h3>
               </div>
 
-              <div className="text-center mb-2 h-28 flex items-center justify-center">
+              <div className="text-center mb-2 h-56 flex items-center justify-center">
                 <img
                   src={getPerforadoImageForTitle(s.title)}
                   alt={s.title}
-                  className="w-24 h-24 object-contain"
+                  className="w-48 h-auto object-contain"
                   onError={(e: any) => { e.currentTarget.style.display = 'none'; }}
                 />
               </div>
@@ -2624,7 +2624,7 @@ export const IndustrialesPage: React.FC = () => {
                   <h3 className="text-xl font-bold text-blue-600">EMPAQUES</h3>
                 </div>
                 <div className="text-center mb-2 h-28 flex items-center justify-center">
-                  <img src={EmpaquesImg} alt="Empaques" className="w-24 h-auto" />
+                  <img src={EmpaquesImg} alt="Empaques" className="w-40 h-auto sm:w-44 md:w-48" />
                 </div>
                 <EmpaquesTable />
               </div>
@@ -5597,7 +5597,7 @@ export const ElectrodoVarillaPage: React.FC = () => {
                     <img
                       src={imgRollo}
                       alt="Varillas"
-                      className="w-40 h-30 sm:w-50 sm:h-40 md:w-60 md:h-48 object-contain"
+                      className="w-28 h-28 sm:w-36 sm:h-36 md:w-36 md:h-36 object-contain"
                     />
                 </div>
                 <VarillasTable />
